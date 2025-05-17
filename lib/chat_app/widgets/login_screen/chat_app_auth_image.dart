@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fundamentals/chat_app/helper/constants.dart';
 
 class ChatAppAuthImage extends StatelessWidget {
   const ChatAppAuthImage({
@@ -7,8 +8,8 @@ class ChatAppAuthImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image(
-      image: AssetImage('lib/chat_app/images/scholar.png'),
+    return const Image(
+      image: AssetImage(kMainAppImage),
       width: 100,
       height: 100,
     );

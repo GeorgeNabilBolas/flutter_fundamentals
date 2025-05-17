@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fundamentals/chat_app/controller/toggel_auth_cubit.dart';
+import 'package:flutter_fundamentals/chat_app/helper/constants.dart';
 
 class AuthToggelSign extends StatelessWidget {
   const AuthToggelSign({
@@ -27,7 +28,7 @@ class AuthToggelSign extends StatelessWidget {
           child: Text(
             authTitle == 'Sign Up' ? 'Sign In' : 'Sign Up',
             style: TextStyle(
-              color: Color(0xffC7EDE6),
+              color: Color(kImageColor),
             ),
           ),
         ),

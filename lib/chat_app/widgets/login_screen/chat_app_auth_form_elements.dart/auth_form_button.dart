@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_fundamentals/chat_app/controller/auth_cubit/auth_cubit.dart';
 import 'package:flutter_fundamentals/chat_app/controller/toggel_auth_cubit.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_fundamentals/chat_app/helper/constants.dart';
 
 class AuthFormButton extends StatelessWidget {
-  AuthFormButton({
+  const AuthFormButton({
     super.key,
     required this.title,
   });
@@ -27,17 +28,23 @@ class AuthFormButton extends StatelessWidget {
       onPressed: () async {
         if (context.read<ToggelAuthCubit>().formKey.currentState!.validate()) {
           if (context.read<ToggelAuthCubit>().state) {
-            await signUpMethod(context);
+            await context.read<AuthCubit>().signMethod(context, 'sign_up');
           } else if (!context.read<ToggelAuthCubit>().state) {
-            await signInMethod(context);
+            await context.read<AuthCubit>().signMethod(context, 'sign_in');
           }
         }
       },
-      child: Text(
-        title,
-        style: const TextStyle(
-          color: Color(0xff2B475E),
-        ),
+      child: BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, state) {
+          return (state is AuthLoading)
+              ? const CircularProgressIndicator()
+              : Text(
+                  title,
+                  style: const TextStyle(
+                    color: Color(kPrimaryColor),
+                  ),
+                );
+        },
       ),
     );
   }

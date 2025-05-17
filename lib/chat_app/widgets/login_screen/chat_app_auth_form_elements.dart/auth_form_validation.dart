@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fundamentals/chat_app/helper/email_validator.dart';
-import 'package:flutter_fundamentals/chat_app/helper/password.validator.dart';
+import 'package:flutter_fundamentals/chat_app/helper/Validations/email_validator.dart';
+import 'package:flutter_fundamentals/chat_app/helper/Validations/password.validator.dart';
+import 'package:flutter_fundamentals/chat_app/helper/constants.dart';
 
 class AuthFormValidation extends StatelessWidget {
   const AuthFormValidation({
@@ -29,7 +30,7 @@ class AuthFormValidation extends StatelessWidget {
           borderSide: BorderSide(color: Colors.white),
           borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
-        errorStyle: const TextStyle(color: Color(0xffC7EDE6)),
+        errorStyle: const TextStyle(color: Color(kImageColor)),
         hintStyle: const TextStyle(color: Colors.white),
         hintText: 'Enter Your $title',
         enabledBorder: const OutlineInputBorder(

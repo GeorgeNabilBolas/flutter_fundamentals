@@ -4,6 +4,8 @@ import "package:flutter_fundamentals/basketball_points_counter_app/basketball_po
 import "package:flutter_fundamentals/birthday_card_app/birthday_card_widget.dart";
 import "package:flutter_fundamentals/business_card_app/business_card_widget.dart";
 import "package:flutter_fundamentals/chat_app/chat_app.dart";
+import "package:flutter_fundamentals/chat_app/helper/routs.dart";
+import "package:flutter_fundamentals/chat_app/widgets/chat_screen/chat_screen.dart";
 import "package:flutter_fundamentals/language_learning_app/language_learning_widget.dart";
 import "package:flutter_fundamentals/language_learning_app/models/tile_model.dart";
 import "package:flutter_fundamentals/language_learning_app/models/toku_app_data.dart";
@@ -50,6 +52,7 @@ class MyApp extends StatelessWidget {
 
   Map<String, WidgetBuilder> get routes {
     return {
+      ChatAppRouts.chatScreen: (context) => const ChatScreen(),
       TokuAppRouts.numbers: (context) => TilesContentWidget(
             title: TokuAppRouts.numbers,
             tileContent: contentTiles[TokuAppRouts.numbers]!,

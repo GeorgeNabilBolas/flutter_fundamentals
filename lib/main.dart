@@ -13,6 +13,7 @@ import "package:flutter_fundamentals/language_learning_app/models/toku_app_route
 import "package:flutter_fundamentals/language_learning_app/widgets/tiles_content_widget.dart";
 import "package:flutter_fundamentals/news_app/news_app.dart";
 import "package:flutter_fundamentals/news_app/services/news_service.dart";
+import "package:flutter_fundamentals/store_app/store_app.dart";
 import "package:flutter_fundamentals/tunes_player_app/tunes_player_widget.dart";
 import 'package:dio/dio.dart';
 import "package:flutter_fundamentals/weather_app/controller/get_weather_bloc/get_weather_bloc.dart";
@@ -46,7 +47,8 @@ class MyApp extends StatelessWidget {
       // home: const TunesPlayerWidget(),
       // home: const NewsApp(),
       // home: const WeatherApp(),
-      home: const ChatApp(),
+      // home: const ChatApp(),
+      home: const StoreApp(),
     );
   }
 

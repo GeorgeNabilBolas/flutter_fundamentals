@@ -1,0 +1,42 @@
+import 'dart:developer';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class NoteBlocObserver implements BlocObserver {
+  @override
+  void onChange(BlocBase bloc, Change change) {
+    log(change.toString());
+    // TODO: implement onChange
+  }
+
+  @override
+  void onClose(BlocBase bloc) {
+    log('Closed');
+
+    // TODO: implement onClose
+  }
+
+  @override
+  void onCreate(BlocBase bloc) {
+    log('Created');
+
+    // TODO: implement onCreate
+  }
+
+  @override
+  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
+    log(error.toString() + '    ' + bloc.toString());
+
+    // TODO: implement onError
+  }
+
+  @override
+  void onEvent(Bloc bloc, Object? event) {
+    // TODO: implement onEvent
+  }
+
+  @override
+  void onTransition(Bloc bloc, Transition transition) {
+    // TODO: implement onTransition
+  }
+}

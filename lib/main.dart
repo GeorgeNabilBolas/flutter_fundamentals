@@ -13,6 +13,16 @@ import "package:flutter_fundamentals/language_learning_app/models/toku_app_route
 import "package:flutter_fundamentals/language_learning_app/widgets/tiles_content_widget.dart";
 import "package:flutter_fundamentals/news_app/news_app.dart";
 import "package:flutter_fundamentals/news_app/services/news_service.dart";
+import "package:flutter_fundamentals/note_app/helper/constants.dart";
+import "package:flutter_fundamentals/note_app/helper/note_app_routes.dart";
+import "package:flutter_fundamentals/note_app/helper/services/note_bloc_observer.dart";
+import "package:flutter_fundamentals/note_app/helper/services/note_cubit/note_cubit.dart";
+import "package:flutter_fundamentals/note_app/helper/services/setup_dependinces.dart";
+import "package:flutter_fundamentals/note_app/models/hive_registrar.g.dart";
+import "package:flutter_fundamentals/note_app/models/note_model.dart";
+import "package:flutter_fundamentals/note_app/note_app.dart";
+import "package:flutter_fundamentals/note_app/widgets/edit_note_screen/edit_note_screen.dart";
+import "package:flutter_fundamentals/store_app/networking/service_locator.dart";
 import "package:flutter_fundamentals/store_app/store_app.dart";
 import "package:flutter_fundamentals/tunes_player_app/tunes_player_widget.dart";
 import 'package:dio/dio.dart';
@@ -22,9 +32,16 @@ import "package:flutter_fundamentals/weather_app/models/weather_model.dart";
 import "package:flutter_fundamentals/weather_app/weather_app.dart";
 import "package:flutter_fundamentals/weather_app/services/weather_service.dart";
 import 'package:firebase_core/firebase_core.dart';
+import "package:hive_ce_flutter/hive_flutter.dart";
 import 'firebase_options.dart';
 
 void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapters();
+  await Hive.openBox<NoteModel>(kNoteBox);
+  Bloc.observer = NoteBlocObserver();
+  setupDependinces();
+  noteSetupDependinces();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -37,23 +54,29 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: routes,
-      debugShowCheckedModeBanner: false,
-      // home: BirthdayCardWidget(),
-      // home: BusinessCardWidget(),
-      // home: BasketballPointsCounterWidget(),
-      // home: const LanguageLearningWidget(),
-      // home: const TunesPlayerWidget(),
-      // home: const NewsApp(),
-      // home: const WeatherApp(),
-      // home: const ChatApp(),
-      home: const StoreApp(),
+    return BlocProvider(
+      create: (context) => NoteCubit(),
+      child: MaterialApp(
+        theme: ThemeData.dark(),
+        routes: routes,
+        debugShowCheckedModeBanner: false,
+        // home: BirthdayCardWidget(),
+        // home: BusinessCardWidget(),
+        // home: BasketballPointsCounterWidget(),
+        // home: const LanguageLearningWidget(),
+        // home: const TunesPlayerWidget(),
+        // home: const NewsApp(),
+        // home: const WeatherApp(),
+        // home: const ChatApp(),
+        // home: const StoreApp(),
+        home: const NoteApp(),
+      ),
     );
   }
 
   Map<String, WidgetBuilder> get routes {
     return {
+      NoteAppRoutes.editNote: (context) => const EditNoteScreen(),
       ChatAppRouts.chatScreen: (context) => const ChatScreen(),
       TokuAppRouts.numbers: (context) => TilesContentWidget(
             title: TokuAppRouts.numbers,

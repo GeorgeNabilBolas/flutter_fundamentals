@@ -87,8 +87,7 @@ flutter run
 George Nabil
 📍 Cairo, Egypt
 💼 Flutter Developer
-🔗 LinkedIn
- | GitHub
+🔗 [LinkedIn](https://www.linkedin.com/in/georgenabilbolas/)
 ✉️ george.nabil.bulis@gmail.com
 
 --- 

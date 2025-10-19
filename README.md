@@ -73,7 +73,7 @@ flutter run
 ```
 ---
 
-##💡 Key Learnings
+## 💡 Key Learnings
 
 - Building dynamic UIs using Flutter’s declarative approach
 - Understanding widget trees and state lifecycles
@@ -82,7 +82,7 @@ flutter run
 - Following SOLID principles and clean, maintainable code practices
 ---
 
-##🧑‍💻 Author
+## 🧑‍💻 Author
 
 George Nabil
 📍 Cairo, Egypt
@@ -93,6 +93,6 @@ George Nabil
 
 --- 
 
-##🪶 License
+## 🪶 License
 
 This project is licensed under the MIT License — you are free to use and modify it with attribution.

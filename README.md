@@ -14,7 +14,9 @@ The goal is to **build a solid foundation in Flutter development** while followi
 ---
 
 ## ✨ Features
-
+- 📲 **Several apps:**
+    - 📝 Note App | ⛅ Weather App | 🗨️ Chat App
+    - And More,...
 - 🧭 **Multi-screen navigation** using `Navigator` and `GoRouter`  
 - 🎨 **Clean and modern UI** following Material Design guidelines  
 - ⚙️ **State management** with `setState`, `Provider`, and custom logic  
@@ -42,11 +44,11 @@ The goal is to **build a solid foundation in Flutter development** while followi
 
 lib/
 │
-├── models/ # Data models
-├── viewmodels/ # Business logic & state handling
-├── views/ # UI screens & widgets
-├── components/ # Reusable UI widgets
-└── main.dart # App entry point
+├── models/ Data models
+├── viewmodels/ Business logic & state handling
+├── views/ UI screens & widgets
+├── components/ Reusable UI widgets
+└── main.dart 
 
 ---
 
